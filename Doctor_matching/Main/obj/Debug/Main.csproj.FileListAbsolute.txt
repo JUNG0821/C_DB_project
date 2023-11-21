@@ -36,3 +36,5 @@ C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\
 C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\Main.Hospital_Change_Info_Form.resources
 C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\Main.Hospital_Change_Sickbed_Form.resources
 C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\Main.Hospital_Regist_Doctor.resources
+C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\bin\Debug\Oracle.DataAccess.dll
+C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\Main.csproj.CopyComplete
