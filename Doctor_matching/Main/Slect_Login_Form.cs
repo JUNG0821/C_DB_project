@@ -32,5 +32,15 @@ namespace Main
             this.Hide();
 
         }
+
+        private void Slect_Login_Form_Load(object sender, EventArgs e)
+        {
+            DBconn isDBcontrue = new DBconn();
+            isDBcontrue.OpenConnection();
+
+            DBconn2 dbconn2 = new DBconn2();
+            dbconn2.OpenConnection();
+
+        }
     }
 }

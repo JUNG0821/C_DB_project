@@ -7,31 +7,117 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Main
 {
     public partial class Patient_Change_Info_Form : Form
     {
-        public Patient_Change_Info_Form()
+        private decimal PK;
+        private PatientData patient_data;
+        private ImageHandler imagehandler;
+        private DBconn db;
+
+        public Patient_Change_Info_Form(decimal PK, PatientData patient_data)
         {
+            db = new DBconn();
+            this.PK = PK;
+            this.patient_data = patient_data;
+            this.imagehandler = new ImageHandler();
             InitializeComponent();
             this.FormClosed += (s, args) => Application.Exit();
 
+            name_txt.Text = patient_data.PatientName;
+
+            if(patient_data.PatientGender == "남성")
+            {
+                men_radio.Checked = true;
+            }
+            else
+            {
+                women_radio.Checked = true;
+            }
+            department_combo.Text = patient_data.PatientDepartment;
+
+            e_mail_txt.Text = patient_data.PatientEmail;
+
+            first_location_combo.Text = patient_data.FirstLocation;
+
+            second_location_combo.Text = patient_data.SecondLocation;
+
+            third_location_combo.Text = patient_data.DetailedLocation;
+
+            significant_txt.Text = patient_data.PatientSpecialNotes;
+
+            byte[] imageBytes = patient_data.PatientImage;
+            Image image;
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                image = Image.FromStream(ms);
+            }
+
+            // PictureBox에 이미지 할당
+            user_image.Image = image;
+
+            // PictureBox 다시 그리기
+            user_image.Refresh();
 
         }
 
         private void back_btn_Click(object sender, EventArgs e)
         {
-            Patient_Main_Form patient_main_form = new Patient_Main_Form();
+            Patient_Main_Form patient_main_form = new Patient_Main_Form(this.PK);
             patient_main_form.Show();
             this.Hide();
         }
 
         private void complete_btn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("설정이 완료되었습니다!");
+            this.patient_data.PatientName = name_txt.Text;
+            if(men_radio.Checked)
+            {
+                patient_data.PatientGender = "남성";
+            }else
+            {
+                patient_data.PatientGender = "여성";
+            }
+            this.patient_data.PatientDepartment = department_combo.SelectedItem.ToString();
+            this.patient_data.PatientEmail = e_mail_txt.Text;
+            this.patient_data.FirstLocation = first_location_combo.SelectedItem.ToString();
+            this.patient_data.SecondLocation = second_location_combo.SelectedItem.ToString();
+            this.patient_data.DetailedLocation = third_location_combo.Text;
+            this.patient_data.PatientSpecialNotes = significant_txt.Text;
 
-            Patient_Main_Form patient_main_form = new Patient_Main_Form();
+            if(this.patient_data == null)
+            {
+                Console.WriteLine("비어있음");
+                Console.WriteLine(this.PK);
+                Console.WriteLine(patient_data.PatientName);
+                Console.WriteLine(patient_data.PatientGender);
+                Console.WriteLine(patient_data.PatientDepartment);
+                Console.WriteLine(patient_data.PatientEmail);
+                Console.WriteLine(patient_data.FirstLocation);
+                Console.WriteLine(patient_data.SecondLocation);
+                Console.WriteLine(patient_data.SecondLocation);
+                Console.WriteLine(patient_data.PatientSpecialNotes);
+
+            }
+            else
+            {
+                Console.WriteLine("안비어있음");
+                Console.WriteLine(this.PK);
+                Console.WriteLine(patient_data.PatientName);
+                Console.WriteLine(patient_data.PatientGender);
+                Console.WriteLine(patient_data.PatientDepartment);
+                Console.WriteLine(patient_data.PatientEmail);
+                Console.WriteLine(patient_data.FirstLocation);
+                Console.WriteLine(patient_data.SecondLocation);
+                Console.WriteLine(patient_data.SecondLocation);
+                Console.WriteLine(patient_data.PatientSpecialNotes);
+            }
+            db.update_patient_info(this.PK, this.patient_data);
+            MessageBox.Show("설정이 완료되었습니다!");
+            Patient_Main_Form patient_main_form = new Patient_Main_Form(this.PK);
             patient_main_form.Show();
             this.Hide();
         }
@@ -144,7 +230,7 @@ namespace Main
                 second_location_combo.Items.Add("달성군");
                 second_location_combo.Items.Add("군위군");
             }
-            else if (selectedRegion == "대구광역시")
+            else if (selectedRegion == "인천광역시")
             {
                 second_location_combo.Items.Add("중구");
                 second_location_combo.Items.Add("동구");
@@ -157,7 +243,7 @@ namespace Main
                 second_location_combo.Items.Add("강화군");
                 second_location_combo.Items.Add("옹진군");
             }
-            else if (selectedRegion == "광주광역시")
+            else if (selectedRegion == "울산광역시")
             {
                 second_location_combo.Items.Add("동구");
                 second_location_combo.Items.Add("서구");
@@ -205,7 +291,7 @@ namespace Main
                 second_location_combo.Items.Add("인제군");
                 second_location_combo.Items.Add("고성군");
             }
-            else if (selectedRegion == "충청북도")
+            else if (selectedRegion == "충천북도")
             {
                 second_location_combo.Items.Add("청주시");
                 second_location_combo.Items.Add("충주시");
@@ -331,5 +417,78 @@ namespace Main
                 second_location_combo.Items.Add("서귀포시");
             }
         }
+
+        private void chagne_picture_btn_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+
+                String imagepath = ShowFileOpenDialog();
+                byte[] imageBytes = File.ReadAllBytes(imagepath);
+                imagehandler.UpdateImage(this.PK, imageBytes);
+                Console.WriteLine(imagepath);
+               
+
+                Image image;
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    image = Image.FromStream(ms);
+                }
+
+                // PictureBox에 이미지 할당
+                user_image.Image = image;
+
+                // PictureBox 다시 그리기
+                user_image.Refresh();
+
+            }
+        }
+        private void tsm_Open_Click(object sender, EventArgs e)
+        {
+            string imagepath = ShowFileOpenDialog();
+
+        }
+
+        /// <summary>
+        /// 그림파일오픈창을 로드후 해당 파일의 FullPath를 가져온다.
+        /// </summary>
+        /// <returns>파일의 FullPath 파일이 없거나 선택을 안할경우 ""를 리턴</returns>
+        public string ShowFileOpenDialog()
+        {
+            //파일오픈창 생성 및 설정
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "파일 오픈 예제창";
+            ofd.FileName = "test";
+            ofd.Filter = "모든 파일 (*.*) | *.*";
+
+            //파일 오픈창 로드
+            DialogResult dr = ofd.ShowDialog();
+
+            //OK버튼 클릭시
+            if (dr == DialogResult.OK)
+            {
+                //File명과 확장자를 가지고 온다.
+                string fileName = ofd.SafeFileName;
+                //File경로와 File명을 모두 가지고 온다.
+                string fileFullName = ofd.FileName;
+                //File경로만 가지고 온다.
+                string filePath = fileFullName.Replace(fileName, "");
+
+                //출력 예제용 로직
+                //label1.Text = "File Name  : " + fileName;
+                //label2.Text = "Full Name  : " + fileFullName;
+                //label3.Text = "File Path  : " + filePath;
+                //File경로 + 파일명 리턴
+                return fileFullName;
+            }
+            //취소버튼 클릭시 또는 ESC키로 파일창을 종료 했을경우
+            else if (dr == DialogResult.Cancel)
+            {
+                return "";
+            }
+
+            return "";
+        }
+
     }
 }

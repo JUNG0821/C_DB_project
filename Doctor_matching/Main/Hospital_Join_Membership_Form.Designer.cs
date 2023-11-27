@@ -61,6 +61,7 @@ namespace Main
             // 
             this.check_pass_txt.Location = new System.Drawing.Point(189, 189);
             this.check_pass_txt.Name = "check_pass_txt";
+            this.check_pass_txt.PasswordChar = '*';
             this.check_pass_txt.Size = new System.Drawing.Size(175, 26);
             this.check_pass_txt.TabIndex = 7;
             // 
@@ -87,6 +88,7 @@ namespace Main
             // 
             this.pass_txt.Location = new System.Drawing.Point(189, 130);
             this.pass_txt.Name = "pass_txt";
+            this.pass_txt.PasswordChar = '*';
             this.pass_txt.Size = new System.Drawing.Size(175, 26);
             this.pass_txt.TabIndex = 3;
             // 

@@ -10,30 +10,26 @@ using System.Windows.Forms;
 
 namespace Main
 {
-    public partial class Hospital_Info_Form : Form
+    public partial class Pationt_Favorit_Hospital : Form
     {
-        decimal Hospital_PK;
+        decimal PK;
+        DoctorData doctordata;
+        List<FavoriteDoctorData> favoritedoctordata;
         DBconn db = new DBconn();
-        private DoctorData select_doctor;
-        private decimal PK;
-        private List<DoctorData> DoctorDataList;
-
-        public Hospital_Info_Form(decimal Hospital_PK, decimal PK, DoctorData select_doctor, List<DoctorData> DoctorDataList)
+        public Pationt_Favorit_Hospital(decimal PK, DoctorData doctordata)
         {
-            InitializeComponent();
-            this.FormClosed += (s, args) => Application.Exit();
-            this.Hospital_PK = Hospital_PK;
+            StartPosition = FormStartPosition.CenterScreen;
 
-            this.select_doctor = select_doctor;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+
             this.PK = PK;
-            this.DoctorDataList = DoctorDataList;
-
-            decimal hospitalPK = Hospital_PK; //병원 pk
-
-            HospitalData hospitalData = db.GetHospitalData(hospitalPK);
-            List<DepartmentData> departmentList = db.GetDepartments(hospitalPK);
-            List<BedData> bedList = db.GetHospitalBedInfo(hospitalPK);
-
+            this.doctordata = doctordata;
+            this.favoritedoctordata = favoritedoctordata;
+            InitializeComponent();
+            decimal doctorHospital = Convert.ToDecimal(this.doctordata.DoctorHospital);
+            HospitalData hospitalData = db.GetHospitalData(doctorHospital);
+            List<DepartmentData> departmentList = db.GetDepartments(doctorHospital);
+            List<BedData> bedList = db.GetHospitalBedInfo(doctorHospital);
 
             name_txt.Text = hospitalData.HospitalName;
             location_txt.Text = hospitalData.FirstLocation + " " + hospitalData.SecondLocation + " " + hospitalData.DetailedLocation;
@@ -41,8 +37,7 @@ namespace Main
             phone_num_txt.Text = "0" + hospitalData.HospitalPhoneNumber;
             e_mail_txt.Text = hospitalData.HospitalEmail;
             introduce_txt.Text = hospitalData.HospitalSpecialNotes;
-                
-            // 병원 진료과목 뿌려주기
+
             foreach (var department in departmentList)
             {
                 int rowIndex = hospital_department_view.Rows.Add();
@@ -59,25 +54,15 @@ namespace Main
                 hospital_sickbed_view.Rows[rowIndex].Cells[2].Value = "보기";
                 hospital_sickbed_view.Rows[rowIndex].Tag = sickBedData.SickBedSerialNumber;
             }
+
+            decimal hospitalPK = 100; //병원 pk
         }
 
-        
         private void back_btn_Click(object sender, EventArgs e)
         {
-            Doctor_Detail_Form doctor_detail_form = new Doctor_Detail_Form(this.PK, this.select_doctor, this.DoctorDataList);
-            doctor_detail_form.Show();
+            Patient_Favorites_Doctor_Detail_Form patient_favorites_doctor_detial_form = new Patient_Favorites_Doctor_Detail_Form(this.PK, this.doctordata);
+            patient_favorites_doctor_detial_form.Show();
             this.Hide();
-        }
-        
-
-        private void Hospital_Info_Form_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void patient_main_box_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void hospital_department_view_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -90,7 +75,7 @@ namespace Main
                 Console.WriteLine(departmentData.DepartmentDescription);
                 Hospital_Department_ex hospital_department_ex = new Hospital_Department_ex(departmentData);
                 hospital_department_ex.ShowDialog();
-               }
+            }
         }
 
         private void hospital_sickbed_view_CellContentClick(object sender, DataGridViewCellEventArgs e)

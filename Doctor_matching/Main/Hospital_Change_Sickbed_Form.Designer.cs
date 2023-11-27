@@ -238,6 +238,7 @@ namespace Main
             this.sickbed_3_txt.Name = "sickbed_3_txt";
             this.sickbed_3_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_3_txt.TabIndex = 39;
+            this.sickbed_3_txt.Text = "s";
             // 
             // sickbed_2_txt
             // 

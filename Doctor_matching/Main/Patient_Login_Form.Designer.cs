@@ -30,13 +30,13 @@ namespace Main
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.back_btn = new System.Windows.Forms.Button();
             this.join_membership_btn = new System.Windows.Forms.Button();
             this.login_btn = new System.Windows.Forms.Button();
             this.pass_txt = new System.Windows.Forms.TextBox();
             this.id_txt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.back_btn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,16 @@ namespace Main
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "환자 로그인";
+            // 
+            // back_btn
+            // 
+            this.back_btn.Location = new System.Drawing.Point(316, 200);
+            this.back_btn.Name = "back_btn";
+            this.back_btn.Size = new System.Drawing.Size(129, 35);
+            this.back_btn.TabIndex = 6;
+            this.back_btn.Text = "뒤로가기";
+            this.back_btn.UseVisualStyleBackColor = true;
+            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
             // 
             // join_membership_btn
             // 
@@ -81,6 +91,7 @@ namespace Main
             // 
             this.pass_txt.Location = new System.Drawing.Point(152, 114);
             this.pass_txt.Name = "pass_txt";
+            this.pass_txt.PasswordChar = '*';
             this.pass_txt.Size = new System.Drawing.Size(175, 26);
             this.pass_txt.TabIndex = 3;
             // 
@@ -109,16 +120,6 @@ namespace Main
             this.label1.TabIndex = 0;
             this.label1.Text = "아이디 :";
             // 
-            // back_btn
-            // 
-            this.back_btn.Location = new System.Drawing.Point(316, 200);
-            this.back_btn.Name = "back_btn";
-            this.back_btn.Size = new System.Drawing.Size(129, 35);
-            this.back_btn.TabIndex = 6;
-            this.back_btn.Text = "뒤로가기";
-            this.back_btn.UseVisualStyleBackColor = true;
-            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
-            // 
             // Patient_Login_Form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -129,6 +130,7 @@ namespace Main
             this.Name = "Patient_Login_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patient_Login_Form";
+            this.Load += new System.EventHandler(this.Patient_Login_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

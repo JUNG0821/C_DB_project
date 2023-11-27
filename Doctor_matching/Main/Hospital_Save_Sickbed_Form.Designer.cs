@@ -196,6 +196,7 @@ namespace Main
             this.sickbed_9_txt.Name = "sickbed_9_txt";
             this.sickbed_9_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_9_txt.TabIndex = 45;
+            this.sickbed_9_txt.Text = "0";
             // 
             // sickbed_8_txt
             // 
@@ -203,6 +204,7 @@ namespace Main
             this.sickbed_8_txt.Name = "sickbed_8_txt";
             this.sickbed_8_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_8_txt.TabIndex = 44;
+            this.sickbed_8_txt.Text = "0";
             // 
             // sickbed_7_txt
             // 
@@ -210,6 +212,7 @@ namespace Main
             this.sickbed_7_txt.Name = "sickbed_7_txt";
             this.sickbed_7_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_7_txt.TabIndex = 43;
+            this.sickbed_7_txt.Text = "0";
             // 
             // sickbed_6_txt
             // 
@@ -217,6 +220,7 @@ namespace Main
             this.sickbed_6_txt.Name = "sickbed_6_txt";
             this.sickbed_6_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_6_txt.TabIndex = 42;
+            this.sickbed_6_txt.Text = "0";
             // 
             // sickbed_5_txt
             // 
@@ -224,6 +228,7 @@ namespace Main
             this.sickbed_5_txt.Name = "sickbed_5_txt";
             this.sickbed_5_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_5_txt.TabIndex = 41;
+            this.sickbed_5_txt.Text = "0";
             // 
             // sickbed_4_txt
             // 
@@ -231,6 +236,7 @@ namespace Main
             this.sickbed_4_txt.Name = "sickbed_4_txt";
             this.sickbed_4_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_4_txt.TabIndex = 40;
+            this.sickbed_4_txt.Text = "0";
             // 
             // sickbed_3_txt
             // 
@@ -238,6 +244,7 @@ namespace Main
             this.sickbed_3_txt.Name = "sickbed_3_txt";
             this.sickbed_3_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_3_txt.TabIndex = 39;
+            this.sickbed_3_txt.Text = "0";
             // 
             // sickbed_2_txt
             // 
@@ -245,6 +252,7 @@ namespace Main
             this.sickbed_2_txt.Name = "sickbed_2_txt";
             this.sickbed_2_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_2_txt.TabIndex = 38;
+            this.sickbed_2_txt.Text = "0";
             // 
             // sickbed_1_txt
             // 
@@ -252,6 +260,7 @@ namespace Main
             this.sickbed_1_txt.Name = "sickbed_1_txt";
             this.sickbed_1_txt.Size = new System.Drawing.Size(100, 29);
             this.sickbed_1_txt.TabIndex = 37;
+            this.sickbed_1_txt.Text = "0";
             // 
             // label9
             // 

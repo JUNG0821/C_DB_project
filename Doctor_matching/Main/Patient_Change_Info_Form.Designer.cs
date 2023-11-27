@@ -206,6 +206,7 @@ namespace Main
             this.chagne_picture_btn.TabIndex = 32;
             this.chagne_picture_btn.Text = "프로필사진변경";
             this.chagne_picture_btn.UseVisualStyleBackColor = true;
+            this.chagne_picture_btn.Click += new System.EventHandler(this.chagne_picture_btn_Click);
             // 
             // user_image
             // 

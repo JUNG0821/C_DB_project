@@ -30,10 +30,12 @@ namespace Main
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.e_mail_txt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.back_btn = new System.Windows.Forms.Button();
             this.complete_btn = new System.Windows.Forms.Button();
             this.map_picture_btn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.hospital_map_img = new System.Windows.Forms.PictureBox();
             this.have_sickbed_btn = new System.Windows.Forms.Button();
             this.have_department_btn = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -52,15 +54,17 @@ namespace Main
             this.name_txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hospital_map_img)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.e_mail_txt);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.back_btn);
             this.groupBox1.Controls.Add(this.complete_btn);
             this.groupBox1.Controls.Add(this.map_picture_btn);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.hospital_map_img);
             this.groupBox1.Controls.Add(this.have_sickbed_btn);
             this.groupBox1.Controls.Add(this.have_department_btn);
             this.groupBox1.Controls.Add(this.label10);
@@ -85,6 +89,22 @@ namespace Main
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "정보를 변경해주세요";
+            // 
+            // e_mail_txt
+            // 
+            this.e_mail_txt.Location = new System.Drawing.Point(113, 488);
+            this.e_mail_txt.Name = "e_mail_txt";
+            this.e_mail_txt.Size = new System.Drawing.Size(177, 26);
+            this.e_mail_txt.TabIndex = 36;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(36, 491);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 16);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "E_mail :";
             // 
             // back_btn
             // 
@@ -114,16 +134,17 @@ namespace Main
             this.map_picture_btn.TabIndex = 33;
             this.map_picture_btn.Text = "지도 그림 설정";
             this.map_picture_btn.UseVisualStyleBackColor = true;
+            this.map_picture_btn.Click += new System.EventHandler(this.map_picture_btn_Click);
             // 
-            // pictureBox1
+            // hospital_map_img
             // 
-            this.pictureBox1.Image = global::Main.Properties.Resources.hospital_location;
-            this.pictureBox1.Location = new System.Drawing.Point(657, 159);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 291);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
+            this.hospital_map_img.Image = global::Main.Properties.Resources.hospital_location;
+            this.hospital_map_img.Location = new System.Drawing.Point(657, 159);
+            this.hospital_map_img.Name = "hospital_map_img";
+            this.hospital_map_img.Size = new System.Drawing.Size(350, 291);
+            this.hospital_map_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.hospital_map_img.TabIndex = 32;
+            this.hospital_map_img.TabStop = false;
             // 
             // have_sickbed_btn
             // 
@@ -257,6 +278,7 @@ namespace Main
             this.first_location_combo.Name = "first_location_combo";
             this.first_location_combo.Size = new System.Drawing.Size(157, 24);
             this.first_location_combo.TabIndex = 14;
+            this.first_location_combo.SelectedIndexChanged += new System.EventHandler(this.first_location_combo_SelectedIndexChanged);
             // 
             // significant_txt
             // 
@@ -312,7 +334,7 @@ namespace Main
             this.Load += new System.EventHandler(this.Hospital_Change_Info_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hospital_map_img)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -321,7 +343,6 @@ namespace Main
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button map_picture_btn;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button have_sickbed_btn;
         private System.Windows.Forms.Button have_department_btn;
         private System.Windows.Forms.Label label10;
@@ -341,5 +362,8 @@ namespace Main
         private System.Windows.Forms.TextBox name_txt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button back_btn;
+        private System.Windows.Forms.TextBox e_mail_txt;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox hospital_map_img;
     }
 }

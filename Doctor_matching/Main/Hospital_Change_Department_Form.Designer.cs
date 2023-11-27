@@ -99,6 +99,7 @@ namespace Main
             this.department_6.Name = "department_6";
             this.department_6.Size = new System.Drawing.Size(85, 23);
             this.department_6.TabIndex = 117;
+            this.department_6.Tag = "5";
             this.department_6.Text = "신경과";
             this.department_6.UseVisualStyleBackColor = true;
             // 
@@ -110,6 +111,7 @@ namespace Main
             this.department_4.Name = "department_4";
             this.department_4.Size = new System.Drawing.Size(104, 23);
             this.department_4.TabIndex = 116;
+            this.department_4.Tag = "4";
             this.department_4.Text = "산부인과";
             this.department_4.UseVisualStyleBackColor = true;
             // 
@@ -121,6 +123,7 @@ namespace Main
             this.department_10.Name = "department_10";
             this.department_10.Size = new System.Drawing.Size(66, 23);
             this.department_10.TabIndex = 115;
+            this.department_10.Tag = "9";
             this.department_10.Text = "외과";
             this.department_10.UseVisualStyleBackColor = true;
             // 
@@ -132,6 +135,7 @@ namespace Main
             this.department_7.Name = "department_7";
             this.department_7.Size = new System.Drawing.Size(104, 23);
             this.department_7.TabIndex = 114;
+            this.department_7.Tag = "6";
             this.department_7.Text = "신경외과";
             this.department_7.UseVisualStyleBackColor = true;
             // 
@@ -143,6 +147,7 @@ namespace Main
             this.department_11.Name = "department_11";
             this.department_11.Size = new System.Drawing.Size(123, 23);
             this.department_11.TabIndex = 113;
+            this.department_11.Tag = "10";
             this.department_11.Text = "응급의학과";
             this.department_11.UseVisualStyleBackColor = true;
             // 
@@ -154,6 +159,7 @@ namespace Main
             this.department_14.Name = "department_14";
             this.department_14.Size = new System.Drawing.Size(161, 23);
             this.department_14.TabIndex = 112;
+            this.department_14.Tag = "13";
             this.department_14.Text = "진단검사의학과";
             this.department_14.UseVisualStyleBackColor = true;
             // 
@@ -165,6 +171,7 @@ namespace Main
             this.department_1.Name = "department_1";
             this.department_1.Size = new System.Drawing.Size(123, 23);
             this.department_1.TabIndex = 111;
+            this.department_1.Tag = "1";
             this.department_1.Text = "가정의학과";
             this.department_1.UseVisualStyleBackColor = true;
             // 
@@ -176,6 +183,7 @@ namespace Main
             this.department_17.Name = "department_17";
             this.department_17.Size = new System.Drawing.Size(66, 23);
             this.department_17.TabIndex = 110;
+            this.department_17.Tag = "16";
             this.department_17.Text = "치과";
             this.department_17.UseVisualStyleBackColor = true;
             // 
@@ -187,6 +195,7 @@ namespace Main
             this.department_15.Name = "department_15";
             this.department_15.Size = new System.Drawing.Size(192, 23);
             this.department_15.TabIndex = 109;
+            this.department_15.Tag = "14";
             this.department_15.Text = "심장 혈관 흉부외과";
             this.department_15.UseVisualStyleBackColor = true;
             // 
@@ -198,6 +207,7 @@ namespace Main
             this.department_3.Name = "department_3";
             this.department_3.Size = new System.Drawing.Size(148, 23);
             this.department_3.TabIndex = 108;
+            this.department_3.Tag = "3";
             this.department_3.Text = "마취 통증학과";
             this.department_3.UseVisualStyleBackColor = true;
             // 
@@ -209,6 +219,7 @@ namespace Main
             this.department_16.Name = "department_16";
             this.department_16.Size = new System.Drawing.Size(251, 23);
             this.department_16.TabIndex = 107;
+            this.department_16.Tag = "15";
             this.department_16.Text = "피부 * 비뇨기과(원내의원)";
             this.department_16.UseVisualStyleBackColor = true;
             // 
@@ -220,6 +231,7 @@ namespace Main
             this.department_12.Name = "department_12";
             this.department_12.Size = new System.Drawing.Size(104, 23);
             this.department_12.TabIndex = 106;
+            this.department_12.Tag = "11";
             this.department_12.Text = "정형외과";
             this.department_12.UseVisualStyleBackColor = true;
             // 
@@ -231,6 +243,7 @@ namespace Main
             this.department_18.Name = "department_18";
             this.department_18.Size = new System.Drawing.Size(66, 23);
             this.department_18.TabIndex = 105;
+            this.department_18.Tag = "17";
             this.department_18.Text = "안과";
             this.department_18.UseVisualStyleBackColor = true;
             // 
@@ -242,6 +255,7 @@ namespace Main
             this.department_2.Name = "department_2";
             this.department_2.Size = new System.Drawing.Size(66, 23);
             this.department_2.TabIndex = 104;
+            this.department_2.Tag = "2";
             this.department_2.Text = "내과";
             this.department_2.UseVisualStyleBackColor = true;
             // 
@@ -253,6 +267,7 @@ namespace Main
             this.department_8.Name = "department_8";
             this.department_8.Size = new System.Drawing.Size(104, 23);
             this.department_8.TabIndex = 103;
+            this.department_8.Tag = "7";
             this.department_8.Text = "심장내과";
             this.department_8.UseVisualStyleBackColor = true;
             // 
@@ -264,6 +279,7 @@ namespace Main
             this.department_13.Name = "department_13";
             this.department_13.Size = new System.Drawing.Size(123, 23);
             this.department_13.TabIndex = 102;
+            this.department_13.Tag = "12";
             this.department_13.Text = "재활의학과";
             this.department_13.UseVisualStyleBackColor = true;
             // 
@@ -275,6 +291,7 @@ namespace Main
             this.department_9.Name = "department_9";
             this.department_9.Size = new System.Drawing.Size(123, 23);
             this.department_9.TabIndex = 101;
+            this.department_9.Tag = "8";
             this.department_9.Text = "영상의학과";
             this.department_9.UseVisualStyleBackColor = true;
             // 
@@ -286,6 +303,7 @@ namespace Main
             this.department_5.Name = "department_5";
             this.department_5.Size = new System.Drawing.Size(142, 23);
             this.department_5.TabIndex = 100;
+            this.department_5.Tag = "18";
             this.department_5.Text = "소아청소년과";
             this.department_5.UseVisualStyleBackColor = true;
             // 

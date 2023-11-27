@@ -29,19 +29,19 @@ namespace Main
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Patient_Favorites_Doctor_Detail_Form));
             this.doctor_detail_box = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.doctor_coment_view = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.good_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.good = new System.Windows.Forms.DataGridViewButtonColumn();
             this.write_coment_btn = new System.Windows.Forms.Button();
             this.reservation_btn = new System.Windows.Forms.Button();
             this.back_btn = new System.Windows.Forms.Button();
@@ -67,6 +67,7 @@ namespace Main
             // 
             // doctor_detail_box
             // 
+            this.doctor_detail_box.Controls.Add(this.button1);
             this.doctor_detail_box.Controls.Add(this.doctor_coment_view);
             this.doctor_detail_box.Controls.Add(this.write_coment_btn);
             this.doctor_detail_box.Controls.Add(this.reservation_btn);
@@ -94,70 +95,74 @@ namespace Main
             this.doctor_detail_box.TabStop = false;
             this.doctor_detail_box.Text = "의사정보";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(824, 307);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 43);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "새로고침";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // doctor_coment_view
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.doctor_coment_view.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.doctor_coment_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.doctor_coment_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.doctor_coment_view.DefaultCellStyle = dataGridViewCellStyle6;
+            this.name,
+            this.content,
+            this.good_num,
+            this.good});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.doctor_coment_view.DefaultCellStyle = dataGridViewCellStyle5;
             this.doctor_coment_view.Location = new System.Drawing.Point(16, 359);
             this.doctor_coment_view.Name = "doctor_coment_view";
             this.doctor_coment_view.RowTemplate.Height = 37;
             this.doctor_coment_view.Size = new System.Drawing.Size(1068, 427);
             this.doctor_coment_view.TabIndex = 18;
+            this.doctor_coment_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.doctor_coment_view_CellContentClick);
             // 
-            // Column1
+            // name
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.name.DefaultCellStyle = dataGridViewCellStyle1;
+            this.name.HeaderText = "작성자";
+            this.name.Name = "name";
+            this.name.Width = 80;
+            // 
+            // content
+            // 
+            this.content.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.HeaderText = "작성자";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 80;
+            this.content.DefaultCellStyle = dataGridViewCellStyle2;
+            this.content.HeaderText = "댓글내용";
+            this.content.Name = "content";
             // 
-            // Column2
+            // good_num
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.good_num.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column2.HeaderText = "댓글내용";
-            this.Column2.Name = "Column2";
+            this.good_num.DefaultCellStyle = dataGridViewCellStyle3;
+            this.good_num.HeaderText = "추천수";
+            this.good_num.Name = "good_num";
+            this.good_num.Width = 80;
             // 
-            // Column3
+            // good
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.good.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column3.HeaderText = "추천수";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 80;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column4.HeaderText = "추천하기";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 76;
+            this.good.DefaultCellStyle = dataGridViewCellStyle4;
+            this.good.HeaderText = "추천하기";
+            this.good.Name = "good";
+            this.good.Width = 76;
             // 
             // write_coment_btn
             // 
@@ -168,6 +173,7 @@ namespace Main
             this.write_coment_btn.TabIndex = 17;
             this.write_coment_btn.Text = "댓글쓰기";
             this.write_coment_btn.UseVisualStyleBackColor = true;
+            this.write_coment_btn.Click += new System.EventHandler(this.write_coment_btn_Click);
             // 
             // reservation_btn
             // 
@@ -222,6 +228,7 @@ namespace Main
             this.hospital_detail_btn.TabIndex = 12;
             this.hospital_detail_btn.Text = "병원상세보기";
             this.hospital_detail_btn.UseVisualStyleBackColor = true;
+            this.hospital_detail_btn.Click += new System.EventHandler(this.hospital_detail_btn_Click);
             // 
             // introduce_label
             // 
@@ -229,9 +236,9 @@ namespace Main
             this.introduce_label.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.introduce_label.Location = new System.Drawing.Point(311, 284);
             this.introduce_label.Name = "introduce_label";
-            this.introduce_label.Size = new System.Drawing.Size(495, 19);
+            this.introduce_label.Size = new System.Drawing.Size(21, 19);
             this.introduce_label.TabIndex = 11;
-            this.introduce_label.Text = "안녕하세요 부천대학교에서 근무하고 있는 정유환입니다!";
+            this.introduce_label.Text = "\"\"";
             // 
             // email_label
             // 
@@ -239,9 +246,9 @@ namespace Main
             this.email_label.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.email_label.Location = new System.Drawing.Point(324, 236);
             this.email_label.Name = "email_label";
-            this.email_label.Size = new System.Drawing.Size(184, 19);
+            this.email_label.Size = new System.Drawing.Size(21, 19);
             this.email_label.TabIndex = 10;
-            this.email_label.Text = "bak3353@naver.com";
+            this.email_label.Text = "\"\"";
             // 
             // phone_num_label
             // 
@@ -249,9 +256,9 @@ namespace Main
             this.phone_num_label.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.phone_num_label.Location = new System.Drawing.Point(349, 191);
             this.phone_num_label.Name = "phone_num_label";
-            this.phone_num_label.Size = new System.Drawing.Size(137, 19);
+            this.phone_num_label.Size = new System.Drawing.Size(21, 19);
             this.phone_num_label.TabIndex = 9;
-            this.phone_num_label.Text = "010-2204-7847";
+            this.phone_num_label.Text = "\"\"";
             // 
             // department_label
             // 
@@ -259,9 +266,9 @@ namespace Main
             this.department_label.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.department_label.Location = new System.Drawing.Point(374, 149);
             this.department_label.Name = "department_label";
-            this.department_label.Size = new System.Drawing.Size(66, 19);
+            this.department_label.Size = new System.Drawing.Size(21, 19);
             this.department_label.TabIndex = 8;
-            this.department_label.Text = "신경과";
+            this.department_label.Text = "\"\"";
             // 
             // label7
             // 
@@ -299,9 +306,9 @@ namespace Main
             this.hospital_label.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.hospital_label.Location = new System.Drawing.Point(349, 103);
             this.hospital_label.Name = "hospital_label";
-            this.hospital_label.Size = new System.Drawing.Size(104, 19);
+            this.hospital_label.Size = new System.Drawing.Size(21, 19);
             this.hospital_label.TabIndex = 4;
-            this.hospital_label.Text = "부천대학교";
+            this.hospital_label.Text = "\"\"";
             // 
             // label3
             // 
@@ -329,9 +336,9 @@ namespace Main
             this.name_label.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.name_label.Location = new System.Drawing.Point(89, 319);
             this.name_label.Name = "name_label";
-            this.name_label.Size = new System.Drawing.Size(66, 19);
+            this.name_label.Size = new System.Drawing.Size(21, 19);
             this.name_label.TabIndex = 1;
-            this.name_label.Text = "정유환";
+            this.name_label.Text = "\"\"";
             // 
             // doctor_image
             // 
@@ -366,10 +373,6 @@ namespace Main
 
         private System.Windows.Forms.GroupBox doctor_detail_box;
         private System.Windows.Forms.DataGridView doctor_coment_view;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.Button write_coment_btn;
         private System.Windows.Forms.Button reservation_btn;
         private System.Windows.Forms.Button back_btn;
@@ -388,5 +391,10 @@ namespace Main
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.PictureBox doctor_image;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn content;
+        private System.Windows.Forms.DataGridViewTextBoxColumn good_num;
+        private System.Windows.Forms.DataGridViewButtonColumn good;
+        private System.Windows.Forms.Button button1;
     }
 }

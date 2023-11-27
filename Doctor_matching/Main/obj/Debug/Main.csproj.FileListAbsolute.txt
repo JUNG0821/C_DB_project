@@ -38,3 +38,6 @@ C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\
 C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\Main.Hospital_Regist_Doctor.resources
 C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\bin\Debug\Oracle.DataAccess.dll
 C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\Main.csproj.CopyComplete
+C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\Main.Hospital_Department_ex.resources
+C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\Main.Hospital_sicbed_ex.resources
+C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Doctor_matching\Main\obj\Debug\Main.Pationt_Favorit_Hospital.resources

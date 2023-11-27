@@ -1,7 +1,7 @@
 ﻿
 namespace Main
 {
-    partial class Hospital_Info_Form
+    partial class Pationt_Favorit_Hospital
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@ namespace Main
         {
             this.patient_main_box = new System.Windows.Forms.GroupBox();
             this.back_btn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.hospital_sickbed_view = new System.Windows.Forms.DataGridView();
             this.sickbed = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,11 +53,10 @@ namespace Main
             this.division_label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.patient_main_box.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hospital_sickbed_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hospital_department_view)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // patient_main_box
@@ -80,13 +80,12 @@ namespace Main
             this.patient_main_box.Controls.Add(this.label2);
             this.patient_main_box.Controls.Add(this.label1);
             this.patient_main_box.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.patient_main_box.Location = new System.Drawing.Point(12, 12);
+            this.patient_main_box.Location = new System.Drawing.Point(16, 9);
             this.patient_main_box.Name = "patient_main_box";
             this.patient_main_box.Size = new System.Drawing.Size(1205, 897);
-            this.patient_main_box.TabIndex = 5;
+            this.patient_main_box.TabIndex = 6;
             this.patient_main_box.TabStop = false;
             this.patient_main_box.Text = "병원 정보";
-            this.patient_main_box.Enter += new System.EventHandler(this.patient_main_box_Enter);
             // 
             // back_btn
             // 
@@ -98,6 +97,16 @@ namespace Main
             this.back_btn.Text = "뒤로 가기";
             this.back_btn.UseVisualStyleBackColor = true;
             this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Main.Properties.Resources.hospital_location;
+            this.pictureBox1.Location = new System.Drawing.Point(692, 95);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(437, 293);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // label14
             // 
@@ -297,33 +306,19 @@ namespace Main
             this.label1.TabIndex = 0;
             this.label1.Text = "병원이름 :";
             // 
-            // pictureBox1
+            // Pationt_Favorit_Hospital
             // 
-            this.pictureBox1.Image = global::Main.Properties.Resources.hospital_location;
-            this.pictureBox1.Location = new System.Drawing.Point(692, 95);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(437, 293);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Hospital_Info_Form
-            // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1236, 915);
             this.Controls.Add(this.patient_main_box);
-            this.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Hospital_Info_Form";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Hospital_Info_Form";
-            this.Load += new System.EventHandler(this.Hospital_Info_Form_Load);
+            this.Name = "Pationt_Favorit_Hospital";
+            this.Text = "Pationt_Favorit_Hospital";
             this.patient_main_box.ResumeLayout(false);
             this.patient_main_box.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hospital_sickbed_view)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hospital_department_view)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,28 +326,28 @@ namespace Main
         #endregion
 
         private System.Windows.Forms.GroupBox patient_main_box;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label division_label;
+        private System.Windows.Forms.Button back_btn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView hospital_sickbed_view;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sickbed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sickbed_num;
+        private System.Windows.Forms.DataGridViewButtonColumn sickbed_explain_btn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView hospital_department_view;
+        private System.Windows.Forms.DataGridViewTextBoxColumn department;
+        private System.Windows.Forms.DataGridViewButtonColumn department_explain_btn;
         private System.Windows.Forms.Label introduce_txt;
         private System.Windows.Forms.Label e_mail_txt;
         private System.Windows.Forms.Label phone_num_txt;
         private System.Windows.Forms.Label hospital_division_txt;
         private System.Windows.Forms.Label location_txt;
         private System.Windows.Forms.Label name_txt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sickbed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sickbed_num;
-        private System.Windows.Forms.DataGridViewButtonColumn sickbed_explain_btn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn department;
-        private System.Windows.Forms.DataGridViewButtonColumn department_explain_btn;
-        private System.Windows.Forms.Button back_btn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label division_label;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

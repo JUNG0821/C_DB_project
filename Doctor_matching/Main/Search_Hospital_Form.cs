@@ -12,6 +12,8 @@ namespace Main
 {
     public partial class Search_Hospital_Form : Form
     {
+        string hospital_name;
+        DBconn db = new DBconn();
         public Search_Hospital_Form()
         {
             InitializeComponent();
@@ -24,9 +26,17 @@ namespace Main
 
         private void search_btn_Click(object sender, EventArgs e)
         {
-            Patient_Hospital_Info_Form patient_hospital_info_form = new Patient_Hospital_Info_Form();
-            patient_hospital_info_form.Show();
-            this.Hide();
+            hospital_name = hospital_name_txt.Text;
+            decimal hospital_PK = db.GetHospitalPKByName(hospital_name);
+            if (hospital_PK != -1)
+            {
+                Patient_Hospital_Info_Form patient_hospital_info_form = new Patient_Hospital_Info_Form(hospital_PK);
+                patient_hospital_info_form.Show();
+                this.Hide();
+            }else
+            {
+                MessageBox.Show("찾으시려는 병원이 없습니다.!");
+            }
         }
     }
 }

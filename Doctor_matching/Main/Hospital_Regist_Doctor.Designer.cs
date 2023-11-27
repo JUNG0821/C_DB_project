@@ -31,9 +31,11 @@ namespace Main
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hospital_Regist_Doctor));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.career_txt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.department_combo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.change_profile_btn = new System.Windows.Forms.Button();
             this.register_btn = new System.Windows.Forms.Button();
             this.back_btn = new System.Windows.Forms.Button();
             this.significant_txt = new System.Windows.Forms.TextBox();
@@ -45,9 +47,6 @@ namespace Main
             this.name_txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.doctor_image = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.career_txt = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctor_image)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +58,6 @@ namespace Main
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.department_combo);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.change_profile_btn);
             this.groupBox1.Controls.Add(this.register_btn);
             this.groupBox1.Controls.Add(this.back_btn);
             this.groupBox1.Controls.Add(this.significant_txt);
@@ -78,6 +76,31 @@ namespace Main
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "의사 등록";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(447, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(24, 16);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "년";
+            // 
+            // career_txt
+            // 
+            this.career_txt.Location = new System.Drawing.Point(362, 77);
+            this.career_txt.Name = "career_txt";
+            this.career_txt.Size = new System.Drawing.Size(79, 26);
+            this.career_txt.TabIndex = 37;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(259, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 16);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "경력 :";
             // 
             // department_combo
             // 
@@ -98,7 +121,7 @@ namespace Main
             "재활의학과",
             "진단검사의학과",
             "심장혈관흉부외과",
-            "피부 및 비뇨기과(원내의원)",
+            "피부과",
             "치과",
             "안과(원내의원)"});
             this.department_combo.Location = new System.Drawing.Point(362, 212);
@@ -114,15 +137,6 @@ namespace Main
             this.label7.Size = new System.Drawing.Size(87, 16);
             this.label7.TabIndex = 34;
             this.label7.Text = "주 진료과 :";
-            // 
-            // change_profile_btn
-            // 
-            this.change_profile_btn.Location = new System.Drawing.Point(63, 258);
-            this.change_profile_btn.Name = "change_profile_btn";
-            this.change_profile_btn.Size = new System.Drawing.Size(116, 41);
-            this.change_profile_btn.TabIndex = 33;
-            this.change_profile_btn.Text = "프로필변경";
-            this.change_profile_btn.UseVisualStyleBackColor = true;
             // 
             // register_btn
             // 
@@ -213,37 +227,12 @@ namespace Main
             // 
             this.doctor_image.Image = global::Main.Properties.Resources.doctor_original;
             this.doctor_image.InitialImage = ((System.Drawing.Image)(resources.GetObject("doctor_image.InitialImage")));
-            this.doctor_image.Location = new System.Drawing.Point(16, 52);
+            this.doctor_image.Location = new System.Drawing.Point(25, 104);
             this.doctor_image.Name = "doctor_image";
             this.doctor_image.Size = new System.Drawing.Size(200, 200);
             this.doctor_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.doctor_image.TabIndex = 1;
             this.doctor_image.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(259, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 16);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "경력 :";
-            // 
-            // career_txt
-            // 
-            this.career_txt.Location = new System.Drawing.Point(362, 77);
-            this.career_txt.Name = "career_txt";
-            this.career_txt.Size = new System.Drawing.Size(79, 26);
-            this.career_txt.TabIndex = 37;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(447, 87);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 16);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "년";
             // 
             // Hospital_Regist_Doctor
             // 
@@ -271,7 +260,6 @@ namespace Main
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox email_txt;
-        private System.Windows.Forms.Button change_profile_btn;
         private System.Windows.Forms.Button register_btn;
         private System.Windows.Forms.Button back_btn;
         private System.Windows.Forms.TextBox significant_txt;

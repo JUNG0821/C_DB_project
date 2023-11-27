@@ -34,13 +34,12 @@ namespace Main
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.back_btn = new System.Windows.Forms.Button();
             this.doctor_detail_btn = new System.Windows.Forms.Button();
-            this.search_menu_combo = new System.Windows.Forms.ComboBox();
             this.serch_doctor_result_view = new System.Windows.Forms.DataGridView();
             this.profile = new System.Windows.Forms.DataGridViewImageColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hospital = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.career_year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coment_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.e_mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.like_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
@@ -51,7 +50,6 @@ namespace Main
             // 
             this.groupBox1.Controls.Add(this.back_btn);
             this.groupBox1.Controls.Add(this.doctor_detail_btn);
-            this.groupBox1.Controls.Add(this.search_menu_combo);
             this.groupBox1.Controls.Add(this.serch_doctor_result_view);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 12);
@@ -59,7 +57,7 @@ namespace Main
             this.groupBox1.Size = new System.Drawing.Size(1111, 632);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "신경외과 매칭 결과입니다";
+            this.groupBox1.Text = "\"\"";
             // 
             // back_btn
             // 
@@ -83,26 +81,13 @@ namespace Main
             this.doctor_detail_btn.UseVisualStyleBackColor = true;
             this.doctor_detail_btn.Click += new System.EventHandler(this.doctor_detail_btn_Click);
             // 
-            // search_menu_combo
-            // 
-            this.search_menu_combo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_menu_combo.FormattingEnabled = true;
-            this.search_menu_combo.Items.AddRange(new object[] {
-            "추천순",
-            "거리순",
-            "가나다순"});
-            this.search_menu_combo.Location = new System.Drawing.Point(33, 54);
-            this.search_menu_combo.Name = "search_menu_combo";
-            this.search_menu_combo.Size = new System.Drawing.Size(153, 28);
-            this.search_menu_combo.TabIndex = 1;
-            // 
             // serch_doctor_result_view
             // 
             this.serch_doctor_result_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.serch_doctor_result_view.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -114,7 +99,7 @@ namespace Main
             this.name,
             this.hospital,
             this.career_year,
-            this.coment_num,
+            this.e_mail,
             this.like_num});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -129,7 +114,8 @@ namespace Main
             this.serch_doctor_result_view.RowTemplate.Height = 37;
             this.serch_doctor_result_view.Size = new System.Drawing.Size(1041, 514);
             this.serch_doctor_result_view.TabIndex = 0;
-            this.serch_doctor_result_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.serch_doctor_result_view.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.serch_doctor_result_view_CellClick);
+            this.serch_doctor_result_view.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.serch_doctor_result_view_ColumnHeaderMouseClick);
             // 
             // profile
             // 
@@ -156,11 +142,13 @@ namespace Main
             this.career_year.Name = "career_year";
             this.career_year.ReadOnly = true;
             // 
-            // coment_num
+            // e_mail
             // 
-            this.coment_num.HeaderText = "댓글 수";
-            this.coment_num.Name = "coment_num";
-            this.coment_num.ReadOnly = true;
+            this.e_mail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.e_mail.HeaderText = "E_mail";
+            this.e_mail.Name = "e_mail";
+            this.e_mail.ReadOnly = true;
+            this.e_mail.Width = 102;
             // 
             // like_num
             // 
@@ -196,14 +184,13 @@ namespace Main
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView serch_doctor_result_view;
         private System.Windows.Forms.Button doctor_detail_btn;
-        private System.Windows.Forms.ComboBox search_menu_combo;
         private System.Windows.Forms.Button back_btn;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn profile;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn hospital;
         private System.Windows.Forms.DataGridViewTextBoxColumn career_year;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coment_num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn e_mail;
         private System.Windows.Forms.DataGridViewTextBoxColumn like_num;
     }
 }

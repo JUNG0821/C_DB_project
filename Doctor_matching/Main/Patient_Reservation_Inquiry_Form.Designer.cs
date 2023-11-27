@@ -38,9 +38,11 @@ namespace Main
             this.profile = new System.Windows.Forms.DataGridViewImageColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.document = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resercation_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reservation_screening = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resercation_cancel = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patient_reservation_view)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@ namespace Main
             this.groupBox1.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.Location = new System.Drawing.Point(12, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1012, 616);
+            this.groupBox1.Size = new System.Drawing.Size(1392, 616);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "예약확인";
@@ -61,7 +63,7 @@ namespace Main
             // back_btn
             // 
             this.back_btn.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.back_btn.Location = new System.Drawing.Point(858, 22);
+            this.back_btn.Location = new System.Drawing.Point(1254, 22);
             this.back_btn.Name = "back_btn";
             this.back_btn.Size = new System.Drawing.Size(115, 36);
             this.back_btn.TabIndex = 3;
@@ -72,7 +74,7 @@ namespace Main
             // refresh_btn
             // 
             this.refresh_btn.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.refresh_btn.Location = new System.Drawing.Point(721, 22);
+            this.refresh_btn.Location = new System.Drawing.Point(1117, 22);
             this.refresh_btn.Name = "refresh_btn";
             this.refresh_btn.Size = new System.Drawing.Size(115, 36);
             this.refresh_btn.TabIndex = 2;
@@ -96,12 +98,14 @@ namespace Main
             this.profile,
             this.name,
             this.document,
+            this.date,
             this.resercation_time,
             this.reservation_screening,
-            this.resercation_cancel});
+            this.resercation_cancel,
+            this.Column1});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -110,8 +114,9 @@ namespace Main
             this.patient_reservation_view.Location = new System.Drawing.Point(23, 73);
             this.patient_reservation_view.Name = "patient_reservation_view";
             this.patient_reservation_view.RowTemplate.Height = 37;
-            this.patient_reservation_view.Size = new System.Drawing.Size(972, 537);
+            this.patient_reservation_view.Size = new System.Drawing.Size(1347, 537);
             this.patient_reservation_view.TabIndex = 1;
+            this.patient_reservation_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_reservation_view_CellContentClick);
             // 
             // profile
             // 
@@ -132,6 +137,11 @@ namespace Main
             this.document.HeaderText = "진료과";
             this.document.Name = "document";
             this.document.ReadOnly = true;
+            // 
+            // date
+            // 
+            this.date.HeaderText = "예약날짜";
+            this.date.Name = "date";
             // 
             // resercation_time
             // 
@@ -155,10 +165,17 @@ namespace Main
             this.resercation_cancel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.resercation_cancel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "예약 확인";
+            this.Column1.Name = "Column1";
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // Patient_Reservation_Inquiry_Form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1047, 645);
+            this.ClientSize = new System.Drawing.Size(1429, 645);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Patient_Reservation_Inquiry_Form";
@@ -180,8 +197,10 @@ namespace Main
         private System.Windows.Forms.DataGridViewImageColumn profile;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn document;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn resercation_time;
         private System.Windows.Forms.DataGridViewTextBoxColumn reservation_screening;
         private System.Windows.Forms.DataGridViewButtonColumn resercation_cancel;
+        private System.Windows.Forms.DataGridViewButtonColumn Column1;
     }
 }

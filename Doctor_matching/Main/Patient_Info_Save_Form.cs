@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Main
 {
     public partial class Patient_Info_Save_Form : Form
     {
-        public Patient_Info_Save_Form()
+        private DBconn db;
+        private decimal PK;
+        private String gender;
+        public Patient_Info_Save_Form(decimal PK)
         {
             InitializeComponent();
+            db = new DBconn();
+            this.PK = PK;
         }
 
         private void first_location_combo_SelectedIndexChanged(object sender, EventArgs e)
@@ -311,17 +317,71 @@ namespace Main
 
         private void complete_btn_Click(object sender, EventArgs e)
         {
-            Patient_Main_Form patient_main_form = new Patient_Main_Form();
-            patient_main_form.Show();
-            this.Close();
-        }
+            //성별 넣기
+            if (men_radio.Checked)
+            {
+                
+                this.gender = "남성";
+            }
+            else if (women_radio.Checked)
+            {            
+                this.gender = "여성";
+            }
+            else
+            {
+                MessageBox.Show("성별을 선택하세요.");
+            }
+            //정보 넣기
+            string imagepath = @"C:\Users\bak33\OneDrive\바탕 화면\C#_Project\Project_image\user_default_image.png"; //이미지 주소
+            String gender = this.gender; //성별
+            string name = name_txt.Text; //이름
+            int age = int.Parse(age_txt.Text); //나이
+            string department = department_combo.SelectedItem.ToString(); //진료과
+            string firstLocation = first_location_combo.SelectedItem.ToString(); // 첫번째 위치
+            string secondLocation = second_location_combo.SelectedItem.ToString(); //두번째 위치
+            string detail_location = third_location_txt.Text; //디테일 위치
+            string phone_number = phone_txt.Text; //전화번호
+            String e_mail = email_txt.Text; //이메일
+            String note = significant_txt.Text; //특이사항
 
+            int check_info = db.set_patient_info(this.PK, name, gender, age, department, phone_number, note, e_mail); //환자 정보 넣기
+            Boolean check_location = db.set_patient_location(this.PK, firstLocation, secondLocation, detail_location); // 환자 위치 넣기
+
+            
+            ImageHandler imagehandler = new ImageHandler(); //환자이미지넣기
+            byte[] imageBytes = File.ReadAllBytes(imagepath);
+            imagehandler.SaveImage(this.PK, imageBytes);
+            Console.WriteLine(imagepath); 
+
+
+            if (check_info == 1 && check_location)
+            {
+                MessageBox.Show("정보 저장에 성공했습니다!");
+                Patient_Main_Form patient_main_form = new Patient_Main_Form(this.PK);
+                patient_main_form.Show();
+                this.Hide();
+            }
+            else if (check_info == 2)
+            {
+                MessageBox.Show("중복되는 정보가 있습니다!");
+            }else if (check_info == -1)
+            {
+                MessageBox.Show("정보 저장에 실패하였습니다.");
+            }
+            
+
+        }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
 
         private void Patient_Info_Save_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void department_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

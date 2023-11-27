@@ -41,7 +41,6 @@ namespace Main
             this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.department_explain_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.introduce_txt = new System.Windows.Forms.Label();
-            this.explain_btn = new System.Windows.Forms.Button();
             this.e_mail_txt = new System.Windows.Forms.Label();
             this.phone_num_txt = new System.Windows.Forms.Label();
             this.hospital_division_txt = new System.Windows.Forms.Label();
@@ -67,7 +66,6 @@ namespace Main
             this.patient_main_box.Controls.Add(this.label13);
             this.patient_main_box.Controls.Add(this.hospital_department_view);
             this.patient_main_box.Controls.Add(this.introduce_txt);
-            this.patient_main_box.Controls.Add(this.explain_btn);
             this.patient_main_box.Controls.Add(this.e_mail_txt);
             this.patient_main_box.Controls.Add(this.phone_num_txt);
             this.patient_main_box.Controls.Add(this.hospital_division_txt);
@@ -120,6 +118,7 @@ namespace Main
             this.hospital_sickbed_view.RowTemplate.Height = 37;
             this.hospital_sickbed_view.Size = new System.Drawing.Size(437, 435);
             this.hospital_sickbed_view.TabIndex = 18;
+            this.hospital_sickbed_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hospital_sickbed_view_CellContentClick);
             // 
             // sickbed
             // 
@@ -164,6 +163,7 @@ namespace Main
             this.hospital_department_view.RowTemplate.Height = 37;
             this.hospital_department_view.Size = new System.Drawing.Size(437, 435);
             this.hospital_department_view.TabIndex = 16;
+            this.hospital_department_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hospital_department_view_CellContentClick);
             // 
             // department
             // 
@@ -186,62 +186,52 @@ namespace Main
             this.introduce_txt.Name = "introduce_txt";
             this.introduce_txt.Size = new System.Drawing.Size(474, 67);
             this.introduce_txt.TabIndex = 15;
-            this.introduce_txt.Text = "안녕하세요 서울대 병원입니다 어쩌구저저꾸 어쩌구저저꾸 어쩌구저저꾸 어쩌구저저꾸 어쩌구저저꾸 어쩌구저저꾸 어쩌구저저꾸 어쩌구저저꾸 \r\n";
-            // 
-            // explain_btn
-            // 
-            this.explain_btn.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.explain_btn.Location = new System.Drawing.Point(257, 131);
-            this.explain_btn.Name = "explain_btn";
-            this.explain_btn.Size = new System.Drawing.Size(106, 30);
-            this.explain_btn.TabIndex = 14;
-            this.explain_btn.Text = "설명 보기";
-            this.explain_btn.UseVisualStyleBackColor = true;
+            this.introduce_txt.Text = "\"\"";
             // 
             // e_mail_txt
             // 
             this.e_mail_txt.AutoSize = true;
             this.e_mail_txt.Location = new System.Drawing.Point(179, 224);
             this.e_mail_txt.Name = "e_mail_txt";
-            this.e_mail_txt.Size = new System.Drawing.Size(184, 19);
+            this.e_mail_txt.Size = new System.Drawing.Size(21, 19);
             this.e_mail_txt.TabIndex = 13;
-            this.e_mail_txt.Text = "bak3353@naver.com";
+            this.e_mail_txt.Text = "\"\"";
             // 
             // phone_num_txt
             // 
             this.phone_num_txt.AutoSize = true;
             this.phone_num_txt.Location = new System.Drawing.Point(208, 178);
             this.phone_num_txt.Name = "phone_num_txt";
-            this.phone_num_txt.Size = new System.Drawing.Size(137, 19);
+            this.phone_num_txt.Size = new System.Drawing.Size(21, 19);
             this.phone_num_txt.TabIndex = 12;
-            this.phone_num_txt.Text = "010-2204-7847";
+            this.phone_num_txt.Text = "\"\"";
             // 
             // hospital_division_txt
             // 
             this.hospital_division_txt.AutoSize = true;
             this.hospital_division_txt.Location = new System.Drawing.Point(166, 136);
             this.hospital_division_txt.Name = "hospital_division_txt";
-            this.hospital_division_txt.Size = new System.Drawing.Size(85, 19);
+            this.hospital_division_txt.Size = new System.Drawing.Size(21, 19);
             this.hospital_division_txt.TabIndex = 11;
-            this.hospital_division_txt.Text = "의료법인";
+            this.hospital_division_txt.Text = "\"\"";
             // 
             // location_txt
             // 
             this.location_txt.AutoSize = true;
             this.location_txt.Location = new System.Drawing.Point(166, 94);
             this.location_txt.Name = "location_txt";
-            this.location_txt.Size = new System.Drawing.Size(441, 19);
+            this.location_txt.Size = new System.Drawing.Size(21, 19);
             this.location_txt.TabIndex = 10;
-            this.location_txt.Text = "경기도 시흥시 장곡동 숲속마을아파트 205동 304호";
+            this.location_txt.Text = "\"\"";
             // 
             // name_txt
             // 
             this.name_txt.AutoSize = true;
             this.name_txt.Location = new System.Drawing.Point(166, 50);
             this.name_txt.Name = "name_txt";
-            this.name_txt.Size = new System.Drawing.Size(104, 19);
+            this.name_txt.Size = new System.Drawing.Size(21, 19);
             this.name_txt.TabIndex = 9;
-            this.name_txt.Text = "서울대병원";
+            this.name_txt.Text = "\"\"";
             // 
             // label7
             // 
@@ -336,7 +326,6 @@ namespace Main
         private System.Windows.Forms.DataGridViewTextBoxColumn department;
         private System.Windows.Forms.DataGridViewButtonColumn department_explain_btn;
         private System.Windows.Forms.Label introduce_txt;
-        private System.Windows.Forms.Button explain_btn;
         private System.Windows.Forms.Label e_mail_txt;
         private System.Windows.Forms.Label phone_num_txt;
         private System.Windows.Forms.Label hospital_division_txt;

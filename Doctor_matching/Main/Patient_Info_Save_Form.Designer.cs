@@ -30,11 +30,14 @@ namespace Main
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.age_txt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.phone_txt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.department_combo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.third_location_combo = new System.Windows.Forms.TextBox();
+            this.third_location_txt = new System.Windows.Forms.TextBox();
             this.second_location_combo = new System.Windows.Forms.ComboBox();
             this.first_location_combo = new System.Windows.Forms.ComboBox();
             this.significant_txt = new System.Windows.Forms.TextBox();
@@ -48,9 +51,6 @@ namespace Main
             this.complete_btn = new System.Windows.Forms.Button();
             this.name_txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.age_txt = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,11 +59,11 @@ namespace Main
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.age_txt);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.phone_txt);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.department_combo);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.third_location_combo);
+            this.groupBox1.Controls.Add(this.third_location_txt);
             this.groupBox1.Controls.Add(this.second_location_combo);
             this.groupBox1.Controls.Add(this.first_location_combo);
             this.groupBox1.Controls.Add(this.significant_txt);
@@ -86,12 +86,37 @@ namespace Main
             this.groupBox1.Text = "정보를  작성해 주세요";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox1
+            // label9
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 232);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(256, 26);
-            this.textBox1.TabIndex = 22;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(191, 151);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(24, 16);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "살";
+            // 
+            // age_txt
+            // 
+            this.age_txt.Location = new System.Drawing.Point(92, 148);
+            this.age_txt.Name = "age_txt";
+            this.age_txt.Size = new System.Drawing.Size(93, 26);
+            this.age_txt.TabIndex = 24;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(36, 151);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 16);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "나이 :";
+            // 
+            // phone_txt
+            // 
+            this.phone_txt.Location = new System.Drawing.Point(123, 232);
+            this.phone_txt.Name = "phone_txt";
+            this.phone_txt.Size = new System.Drawing.Size(256, 26);
+            this.phone_txt.TabIndex = 22;
             // 
             // label2
             // 
@@ -128,6 +153,7 @@ namespace Main
             this.department_combo.Name = "department_combo";
             this.department_combo.Size = new System.Drawing.Size(185, 24);
             this.department_combo.TabIndex = 20;
+            this.department_combo.SelectedIndexChanged += new System.EventHandler(this.department_combo_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -138,12 +164,12 @@ namespace Main
             this.label7.TabIndex = 19;
             this.label7.Text = "원하는 진료과 :";
             // 
-            // third_location_combo
+            // third_location_txt
             // 
-            this.third_location_combo.Location = new System.Drawing.Point(402, 322);
-            this.third_location_combo.Name = "third_location_combo";
-            this.third_location_combo.Size = new System.Drawing.Size(196, 26);
-            this.third_location_combo.TabIndex = 16;
+            this.third_location_txt.Location = new System.Drawing.Point(402, 322);
+            this.third_location_txt.Name = "third_location_txt";
+            this.third_location_txt.Size = new System.Drawing.Size(196, 26);
+            this.third_location_txt.TabIndex = 16;
             // 
             // second_location_combo
             // 
@@ -277,31 +303,6 @@ namespace Main
             this.label1.TabIndex = 0;
             this.label1.Text = "이름 :";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(36, 151);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 16);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "나이 :";
-            // 
-            // age_txt
-            // 
-            this.age_txt.Location = new System.Drawing.Point(92, 148);
-            this.age_txt.Name = "age_txt";
-            this.age_txt.Size = new System.Drawing.Size(93, 26);
-            this.age_txt.TabIndex = 24;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(191, 151);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 16);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "살";
-            // 
             // Patient_Info_Save_Form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -332,12 +333,12 @@ namespace Main
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox significant_txt;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox third_location_combo;
+        private System.Windows.Forms.TextBox third_location_txt;
         private System.Windows.Forms.ComboBox second_location_combo;
         private System.Windows.Forms.ComboBox first_location_combo;
         private System.Windows.Forms.ComboBox department_combo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox phone_txt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox age_txt;
