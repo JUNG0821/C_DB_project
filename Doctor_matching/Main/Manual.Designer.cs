@@ -29,23 +29,32 @@ namespace Main
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manual));
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("궁서체", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(97, 158);
+            this.label1.Location = new System.Drawing.Point(35, 91);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1086, 310);
+            this.label1.Size = new System.Drawing.Size(594, 516);
             this.label1.TabIndex = 0;
-            this.label1.Text = "살려줘 ㅅㅂ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Text = resources.GetString("label1.Text");
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(679, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(567, 516);
+            this.label2.TabIndex = 1;
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // Manual
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1283, 693);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Manual";
@@ -58,5 +67,6 @@ namespace Main
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

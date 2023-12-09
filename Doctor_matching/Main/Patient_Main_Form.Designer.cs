@@ -30,7 +30,7 @@ namespace Main
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Patient_Main_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.patient_main_box = new System.Windows.Forms.GroupBox();
             this.matching_btn = new System.Windows.Forms.Button();
             this.search_hospital_btn = new System.Windows.Forms.Button();
@@ -42,12 +42,8 @@ namespace Main
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.department_explain_btn = new System.Windows.Forms.Button();
             this.sickbed_explain_btn = new System.Windows.Forms.Button();
-            this.explain_btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.patient_reservation_view = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.facorites_doctor_detail_btn = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.profile = new System.Windows.Forms.DataGridViewImageColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.document = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +52,9 @@ namespace Main
             this.reservation_screening = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resercation_cancel = new System.Windows.Forms.DataGridViewButtonColumn();
             this.reservation_check = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.facorites_doctor_detail_btn = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.patient_main_box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.user_image)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -160,7 +159,6 @@ namespace Main
             // 
             this.groupBox2.Controls.Add(this.department_explain_btn);
             this.groupBox2.Controls.Add(this.sickbed_explain_btn);
-            this.groupBox2.Controls.Add(this.explain_btn);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(42, 573);
             this.groupBox2.Name = "groupBox2";
@@ -172,7 +170,7 @@ namespace Main
             // department_explain_btn
             // 
             this.department_explain_btn.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.department_explain_btn.Location = new System.Drawing.Point(57, 40);
+            this.department_explain_btn.Location = new System.Drawing.Point(57, 60);
             this.department_explain_btn.Name = "department_explain_btn";
             this.department_explain_btn.Size = new System.Drawing.Size(284, 38);
             this.department_explain_btn.TabIndex = 15;
@@ -183,24 +181,13 @@ namespace Main
             // sickbed_explain_btn
             // 
             this.sickbed_explain_btn.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.sickbed_explain_btn.Location = new System.Drawing.Point(57, 98);
+            this.sickbed_explain_btn.Location = new System.Drawing.Point(57, 137);
             this.sickbed_explain_btn.Name = "sickbed_explain_btn";
             this.sickbed_explain_btn.Size = new System.Drawing.Size(284, 38);
             this.sickbed_explain_btn.TabIndex = 14;
             this.sickbed_explain_btn.Text = "병상 종류와 기능 설명";
             this.sickbed_explain_btn.UseVisualStyleBackColor = true;
             this.sickbed_explain_btn.Click += new System.EventHandler(this.sickbed_explain_btn_Click);
-            // 
-            // explain_btn
-            // 
-            this.explain_btn.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.explain_btn.Location = new System.Drawing.Point(57, 155);
-            this.explain_btn.Name = "explain_btn";
-            this.explain_btn.Size = new System.Drawing.Size(284, 38);
-            this.explain_btn.TabIndex = 13;
-            this.explain_btn.Text = "사용방법";
-            this.explain_btn.UseVisualStyleBackColor = true;
-            this.explain_btn.Click += new System.EventHandler(this.explain_btn_Click);
             // 
             // groupBox1
             // 
@@ -227,52 +214,20 @@ namespace Main
             this.reservation_screening,
             this.resercation_cancel,
             this.reservation_check});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.patient_reservation_view.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.patient_reservation_view.DefaultCellStyle = dataGridViewCellStyle1;
             this.patient_reservation_view.Location = new System.Drawing.Point(23, 40);
             this.patient_reservation_view.Name = "patient_reservation_view";
             this.patient_reservation_view.RowTemplate.Height = 37;
             this.patient_reservation_view.Size = new System.Drawing.Size(1314, 359);
             this.patient_reservation_view.TabIndex = 2;
             this.patient_reservation_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_reservation_view_CellContentClick);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.facorites_doctor_detail_btn);
-            this.groupBox3.Controls.Add(this.listView1);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(603, 482);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1122, 377);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "즐겨찾기 현황입니다!";
-            // 
-            // facorites_doctor_detail_btn
-            // 
-            this.facorites_doctor_detail_btn.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.facorites_doctor_detail_btn.Location = new System.Drawing.Point(980, 42);
-            this.facorites_doctor_detail_btn.Name = "facorites_doctor_detail_btn";
-            this.facorites_doctor_detail_btn.Size = new System.Drawing.Size(115, 102);
-            this.facorites_doctor_detail_btn.TabIndex = 6;
-            this.facorites_doctor_detail_btn.Text = "상세보기";
-            this.facorites_doctor_detail_btn.UseVisualStyleBackColor = true;
-            this.facorites_doctor_detail_btn.Click += new System.EventHandler(this.facorites_doctor_detail_btn_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(23, 42);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(938, 322);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // profile
             // 
@@ -328,6 +283,38 @@ namespace Main
             this.reservation_check.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.reservation_check.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.facorites_doctor_detail_btn);
+            this.groupBox3.Controls.Add(this.listView1);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(603, 482);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1122, 377);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "즐겨찾기 현황입니다!";
+            // 
+            // facorites_doctor_detail_btn
+            // 
+            this.facorites_doctor_detail_btn.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.facorites_doctor_detail_btn.Location = new System.Drawing.Point(980, 42);
+            this.facorites_doctor_detail_btn.Name = "facorites_doctor_detail_btn";
+            this.facorites_doctor_detail_btn.Size = new System.Drawing.Size(115, 102);
+            this.facorites_doctor_detail_btn.TabIndex = 6;
+            this.facorites_doctor_detail_btn.Text = "상세보기";
+            this.facorites_doctor_detail_btn.UseVisualStyleBackColor = true;
+            this.facorites_doctor_detail_btn.Click += new System.EventHandler(this.facorites_doctor_detail_btn_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(23, 42);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(938, 322);
+            this.listView1.TabIndex = 5;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // Patient_Main_Form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -360,7 +347,6 @@ namespace Main
         private System.Windows.Forms.Label user_name_label;
         private System.Windows.Forms.Button search_hospital_btn;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button explain_btn;
         private System.Windows.Forms.Button sickbed_explain_btn;
         private System.Windows.Forms.Button matching_btn;
         private System.Windows.Forms.Button department_explain_btn;

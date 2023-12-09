@@ -43,9 +43,6 @@ namespace Main
 
         private void complete_btn_Click(object sender, EventArgs e)
         {
-            Hospital_Main_Form hospital_main_form = new Hospital_Main_Form(PK);
-            hospital_main_form.Show();
-            this.Hide();
 
             byte[] imageBytes = File.ReadAllBytes(image_path);//이미지 패스
             string name = name_txt.Text; //병원이름
@@ -61,16 +58,20 @@ namespace Main
             db.InsertHospitalInfo(PK, name, phone_number, doctor_num, note, hospital_devision, imageBytes, email);
             db.InsertHospitalLocation(PK, firstLocation, secondLocation, detail_location);
 
+            Hospital_Main_Form hospital_main_form = new Hospital_Main_Form(PK);
+            hospital_main_form.Show();
+            this.Hide();
+
         }
         private void map_picture_btn_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
 
-                String imagepath = ShowFileOpenDialog();
-                byte[] imageBytes = File.ReadAllBytes(imagepath);
+                this.image_path = ShowFileOpenDialog();
+                byte[] imageBytes = File.ReadAllBytes(image_path);
                 db.UpdateHospitalMapImage(PK, imageBytes);
-                Console.WriteLine(imagepath);
+                Console.WriteLine(image_path);
 
 
                 Image image;

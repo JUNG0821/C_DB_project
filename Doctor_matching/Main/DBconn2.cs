@@ -508,6 +508,7 @@ namespace Main
 
             return hospitalBeds;
         }
+
         public void UpdateHospitalInfoAndLocation(decimal hospitalSerialNumber, HospitalInfo updatedInfo, HospitalLocation updatedLocation)
         {
             try

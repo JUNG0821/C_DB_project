@@ -128,7 +128,17 @@ namespace Main
         public decimal SickBedSerialNumber { get; set; }
     }
 
+    public class Department
+    {
+        public string DepartmentName { get; set; }
+        public string DepartmentDescription { get; set; }
+    }
 
+    public class Bed
+    {
+        public string BedName { get; set; }
+        public string BedDescription { get; set; }
+    }
 
 
     class DBconn
@@ -438,6 +448,7 @@ namespace Main
             return patientData;
         }
 
+        //환자가 정보를 변경할 환자의 정보를 업데이트
         public void update_patient_info(decimal patientSerialNumber, PatientData updatedData)
         {
             using (OracleConnection conn = new OracleConnection(conn_info))
@@ -622,6 +633,8 @@ namespace Main
 
             return DoctorDataList;
         }
+
+        //댓글 작성 쿼리
         public void input_comment(decimal Patient_PK, decimal Doctor_PK, string content)
         {
             using (OracleConnection conn = new OracleConnection(conn_info))
@@ -651,6 +664,8 @@ namespace Main
                 }
             }
         }
+
+        //의사 댓글을 보여주는 쿼리
         public List<CommentData> Show_DoctorComment(decimal DoctorPK)
         {
             List<CommentData> comments = new List<CommentData>();
@@ -695,6 +710,7 @@ namespace Main
             }
             return comments;
         }
+        //예약을 하는 쿼리
         public void input_reservation(decimal PationPK, decimal DoctorPK, string date, string time)
         {
             using (OracleConnection conn = new OracleConnection(conn_info))
@@ -727,6 +743,8 @@ namespace Main
                 }
             }
         }
+
+        //환자의 예약 내역을 환자가 볼 수 있도록 하는 쿼리
         public List<ReservationData> GetPatientReservations(decimal patientSerialNumber)
         {
             List<ReservationData> reservations = new List<ReservationData>();
@@ -778,6 +796,8 @@ namespace Main
             }
 
             return reservations;
+
+            //의사 즐겨찾기 기능 쿼리
         }
         public void select_favorites(decimal PationtPK, decimal DoctorPK)
         {
@@ -819,6 +839,7 @@ namespace Main
             }
         }
 
+       //즐겨찾기한 의사들을 환자에게 뿌려주는 쿼리
         public List<FavoriteDoctorData> GetFavoriteDoctors(decimal patientSerialNumber)
         {
             List<FavoriteDoctorData> favoriteDoctors = new List<FavoriteDoctorData>();
@@ -931,6 +952,7 @@ namespace Main
             return doctorData;
         }
 
+        //의사의 추천수를 업데이트 하는쿼리
         public void UP_COUNT(decimal doctorSerialNumber)
         {
             using (OracleConnection connection = new OracleConnection(conn_info))
@@ -979,6 +1001,7 @@ namespace Main
                 }
             }
         }
+        //즐겨찾기 해지
         public void delete_favorite(decimal PationtPK, decimal DoctorPK)
         {
             using (OracleConnection connection = new OracleConnection(conn_info))
@@ -1008,6 +1031,8 @@ namespace Main
                 }
             }
         }
+        
+        //환자 측 에약 취소
         public void CancelReservation(decimal reservationSerialNumber)
         {
             using (OracleConnection connection = new OracleConnection(conn_info))
@@ -1088,6 +1113,7 @@ namespace Main
 
             return reservationList;
         }
+        //병원 측 예약 수락
         public void AcceptReservation(int reservationSerialNumber)
         {
             // 예약 수락 로직을 수행합니다.
@@ -1108,7 +1134,7 @@ namespace Main
                 }
             }
         }
-
+        //병원 측 예약 거절
         public void CancelReservation(int reservationSerialNumber)
         {
             // 예약 취소 로직을 수행합니다.
@@ -1128,7 +1154,7 @@ namespace Main
                     command.ExecuteNonQuery();
                 }
             }
-        }
+        }//환자측 예약 확정
         public void ConfirmReservation(decimal reservationSerialNumber)
         {
             using (OracleConnection connection = new OracleConnection(conn_info))
@@ -1201,6 +1227,7 @@ namespace Main
                 }
             }
         }
+        //의사의 정보를 담아서 리스트에 담음
         public HospitalData GetHospitalData(decimal hospitalPK)
         {
             HospitalData hospitalData = new HospitalData();
@@ -1500,5 +1527,91 @@ namespace Main
 
             return hospitalPK;
         }
+
+        public List<Department> GetAllDepartments()
+        {
+            List<Department> departmentList = new List<Department>();
+
+            using (OracleConnection connection = new OracleConnection(conn_info))
+            {
+                string query = "SELECT DEPARTMENT_NAME, DEPARTMENT_DESCRIPTION FROM JUNG02.DEPARTMENT";
+
+                using (OracleCommand command = new OracleCommand(query, connection))
+                {
+                    using (OracleDataAdapter adapter = new OracleDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        try
+                        {
+                            connection.Open();
+                            adapter.Fill(dataTable);
+
+                            foreach (DataRow row in dataTable.Rows)
+                            {
+                                Department department = new Department
+                                {
+                                    DepartmentName = row["DEPARTMENT_NAME"].ToString(),
+                                    DepartmentDescription = row["DEPARTMENT_DESCRIPTION"].ToString()
+                                };
+                                departmentList.Add(department);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
+                    }
+                }
+            }
+
+            return departmentList;
+        }
+        public List<Bed> GetAllBeds()
+        {
+            List<Bed> bedList = new List<Bed>();
+
+            using (OracleConnection connection = new OracleConnection(conn_info))
+            {
+                string query = "SELECT BED_NAME, BED_DESCRIPTION FROM JUNG02.BED";
+
+                using (OracleCommand command = new OracleCommand(query, connection))
+                {
+                    using (OracleDataAdapter adapter = new OracleDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        try
+                        {
+                            connection.Open();
+                            adapter.Fill(dataTable);
+
+                            foreach (DataRow row in dataTable.Rows)
+                            {
+                                Bed bed = new Bed
+                                {
+                                    BedName = row["BED_NAME"].ToString(),
+                                    BedDescription = row["BED_DESCRIPTION"].ToString()
+                                };
+                                bedList.Add(bed);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
+                    }
+                }
+            }
+
+            return bedList;
+        }
     }
 }
+
